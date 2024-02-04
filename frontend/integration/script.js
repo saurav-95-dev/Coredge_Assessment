@@ -43,6 +43,7 @@ async function startRecording() {
 
             audioChunks = [];
             videoChunks = [];
+            window.location.reload();
         };
 
         mediaRecorder.start();
