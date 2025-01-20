@@ -1,13 +1,15 @@
 let themeButton = document.getElementsByClassName("theme-btn")[0];
 let bodyContainer = document.getElementsByClassName("body-container");
+const startButton = document.getElementById('startButton');
+const stopButton = document.getElementById('stopButton');
+const recordedVideo = document.getElementById('recordedVideo');
 console.log(bodyContainer);
+
 let mediaRecorder;
 let audioChunks = [];
 let videoChunks = [];
 
-const startButton = document.getElementById('startButton');
-const stopButton = document.getElementById('stopButton');
-const recordedVideo = document.getElementById('recordedVideo');
+
 
 async function startRecording() {
     try {
@@ -52,6 +54,7 @@ async function startRecording() {
         mediaRecorder.start();
         startButton.disabled = true;
         stopButton.disabled = false;
+
     } catch (error) {
         console.error('Error accessing media devices:', error);
     }
@@ -69,7 +72,11 @@ function stopRecording() {
 startButton.addEventListener('click', startRecording);
 stopButton.addEventListener('click', stopRecording);
 
+
 //Toggle theme functionality:
+
+//Setting default text of toggle-theme outside addEventListener 
+themeButton.textContent = "Dark Mode";
 
 //setting the default bg color as white:
 for (let i = 0; i < bodyContainer.length; i++){
@@ -81,7 +88,7 @@ themeButton.addEventListener("click", () => {
     for (let i = 0; i < bodyContainer.length; i++){ 
 
         if (bodyContainer[i].style.backgroundColor == "white") {
-           bodyContainer[i].style.backgroundColor = "black";
+           bodyContainer[i].style.backgroundColor = "rgb(49, 48, 48)";
         }
 
         else {
@@ -89,13 +96,16 @@ themeButton.addEventListener("click", () => {
         }
     }
      // Change theme button style
-     if (themeButton.style.backgroundColor === "black" || themeButton.style.backgroundColor === "") {
+    
+    if (themeButton.style.backgroundColor === "black" || themeButton.style.backgroundColor === "") {
         themeButton.style.backgroundColor = "white";
         themeButton.style.color = "black";
-    } else {
+        themeButton.textContent = "Light Mode";
+    }
+    else {
         themeButton.style.backgroundColor = "black";
         themeButton.style.color = "white";
+        themeButton.textContent = "Dark Mode";
     }
-    
 
 })
