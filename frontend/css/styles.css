@@ -2,18 +2,22 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
-    display: flex;
+   
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
 .container {
+    margin-top: 40px;
     text-align: center;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 300px;
+    margin-right: 300px;
+    
 }
 
 h1 {
@@ -47,4 +51,15 @@ h1 {
 
 #stopButton {
     background-color: #d9534f;
+}
+
+.theme-btn{
+    background-color: rgb(7, 7, 7);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    color: #f0f0f0;
+    margin-top: 20px;
+    margin-left: 670px;
+    
 }
