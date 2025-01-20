@@ -1,3 +1,6 @@
+let themeButton = document.getElementsByClassName("theme-btn")[0];
+let bodyContainer = document.getElementsByClassName("body-container");
+console.log(bodyContainer);
 let mediaRecorder;
 let audioChunks = [];
 let videoChunks = [];
@@ -65,3 +68,29 @@ function stopRecording() {
 
 startButton.addEventListener('click', startRecording);
 stopButton.addEventListener('click', stopRecording);
+
+//Toggle theme functionality:
+
+//setting the default bg color as white:
+for (let i = 0; i < bodyContainer.length; i++){
+    bodyContainer[i].style.backgroundColor = "white";
+}
+
+
+themeButton.addEventListener("click", () => {
+    for (let i = 0; i < bodyContainer.length; i++){ 
+
+        if (bodyContainer[i].style.backgroundColor == "white") {
+           
+                bodyContainer[i].style.backgroundColor = "black";
+            
+        }
+        else {
+            
+                bodyContainer[i].style.backgroundColor = "white";
+                
+            
+        }
+    }
+   
+})
