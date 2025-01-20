@@ -81,16 +81,21 @@ themeButton.addEventListener("click", () => {
     for (let i = 0; i < bodyContainer.length; i++){ 
 
         if (bodyContainer[i].style.backgroundColor == "white") {
-           
-                bodyContainer[i].style.backgroundColor = "black";
-            
+           bodyContainer[i].style.backgroundColor = "black";
         }
+
         else {
-            
-                bodyContainer[i].style.backgroundColor = "white";
-                
-            
+           bodyContainer[i].style.backgroundColor = "white";
         }
     }
-   
+     // Change theme button style
+     if (themeButton.style.backgroundColor === "black" || themeButton.style.backgroundColor === "") {
+        themeButton.style.backgroundColor = "white";
+        themeButton.style.color = "black";
+    } else {
+        themeButton.style.backgroundColor = "black";
+        themeButton.style.color = "white";
+    }
+    
+
 })
