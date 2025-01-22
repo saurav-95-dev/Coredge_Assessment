@@ -3,13 +3,16 @@ let bodyContainer = document.getElementsByClassName("body-container");
 const startButton = document.getElementById('startButton');
 const stopButton = document.getElementById('stopButton');
 const recordedVideo = document.getElementById('recordedVideo');
+const filterSelect = document.getElementById('filterSelect');
 console.log(bodyContainer);
 
 let mediaRecorder;
 let audioChunks = [];
 let videoChunks = [];
 
-
+filterSelect.addEventListener('change', (event) => {
+    recordedVideo.style.filter = event.target.value;
+});
 
 async function startRecording() {
     try {
@@ -74,15 +77,12 @@ stopButton.addEventListener('click', stopRecording);
 
 
 //Toggle theme functionality:
-
-//Setting default text of toggle-theme outside addEventListener 
+//Setting default text of toggle-theme outside addEventListener:
 themeButton.textContent = "Dark Mode";
-
 //setting the default bg color as white:
 for (let i = 0; i < bodyContainer.length; i++){
     bodyContainer[i].style.backgroundColor = "white";
 }
-
 
 themeButton.addEventListener("click", () => {
     for (let i = 0; i < bodyContainer.length; i++){ 

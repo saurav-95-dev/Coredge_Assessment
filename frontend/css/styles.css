@@ -121,3 +121,25 @@ h1 {
         font-size: 18px; /* Reduce heading font size for smaller screens */
     }
 }
+
+.filter-div{
+    margin-top: 10px;
+}
+
+.filterSelect{
+    border-radius: 18px;
+}
+
+.filter-label{
+    border-radius: 18px;
+}
+
+#filterSelect{
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.filter-label{
+    color: #f85853;
+    font-weight: bold;
+}

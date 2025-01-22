@@ -18,6 +18,18 @@
             <button id="startButton" class="recordButton">Start Recording</button>
             <button id="stopButton" class="recordButton" disabled>Stop Recording</button>
         </div>
+        <div class="filter-div">
+            <label class ="filter-label" for="filterSelect">Choose a filter -</label>
+        <select id="filterSelect">
+            <option value="">None</option>
+            <option value="grayscale(1)">Grayscale</option>
+            <option value="sepia(1)">Sepia</option>
+            <option value="invert(1)">Invert</option>
+            <option value="blur(5px)">Blur</option>
+            <option value="contrast(2)">High Contrast</option>
+            <option value="brightness(1.5)">Brightness</option>
+        </select>
+        </div>
     </div>
     <script src="integration/script.js"></script>
 </body>
