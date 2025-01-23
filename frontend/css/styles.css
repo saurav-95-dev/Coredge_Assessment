@@ -143,3 +143,18 @@ h1 {
     color: #f85853;
     font-weight: bold;
 }
+
+.voice-command-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.voice-command-btn:hover {
+    background-color: #45a049;
+}

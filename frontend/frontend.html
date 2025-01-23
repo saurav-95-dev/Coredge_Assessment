@@ -14,12 +14,14 @@
         
         <h1>Audio Video Recorder</h1>
         <video id="recordedVideo" controls autoplay></video>
+        <canvas id="filteredCanvas"></canvas>
         <div class="button-container">
             <button id="startButton" class="recordButton">Start Recording</button>
             <button id="stopButton" class="recordButton" disabled>Stop Recording</button>
         </div>
         <div class="filter-div">
             <label class ="filter-label" for="filterSelect">Choose a filter -</label>
+
         <select id="filterSelect">
             <option value="">None</option>
             <option value="grayscale(1)">Grayscale</option>
@@ -30,6 +32,11 @@
             <option value="brightness(1.5)">Brightness</option>
         </select>
         </div>
+        <div>
+            <button id="voiceCommandButton" class="voice-command-btn">Start Voice Command</button>
+            <button id="stopVoiceCommandButton" class="voice-command-btn" >Stop Voice Command</button>
+        </div>
+        
     </div>
     <script src="integration/script.js"></script>
 </body>

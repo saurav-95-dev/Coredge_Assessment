@@ -4,13 +4,16 @@ const startButton = document.getElementById('startButton');
 const stopButton = document.getElementById('stopButton');
 const recordedVideo = document.getElementById('recordedVideo');
 const filterSelect = document.getElementById('filterSelect');
+
 console.log(bodyContainer);
 
 let mediaRecorder;
 let audioChunks = [];
 let videoChunks = [];
 
+
 filterSelect.addEventListener('change', (event) => {
+    console.log(event);
     recordedVideo.style.filter = event.target.value;
 });
 
@@ -109,3 +112,54 @@ themeButton.addEventListener("click", () => {
     }
 
 })
+
+//........................................................
+// Voice Commands Implementation : 
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (!SpeechRecognition) {
+    alert("Your browser does not support Speech Recognition. Please use a supported browser like Chrome.");
+} else {
+    const recognition = new SpeechRecognition();
+    recognition.continuous = true; // Continue recognition until manually stopped
+    recognition.lang = 'en-US'; // Set language to English
+    recognition.interimResults = false; // Wait for final results
+    recognition.maxAlternatives = 1; // Take the best match
+
+    // Voice commands
+    const commands = {
+        "start recording": startRecording,
+        "stop recording": stopRecording,
+        "change to dark mode": () => themeButton.click(),
+        "change to light mode": () => themeButton.click(),
+    };
+
+    // Process recognized speech
+    recognition.onresult = (event) => {
+        const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+        console.log("You said: ", transcript);
+
+        if (commands[transcript]) {
+            commands[transcript](); // Execute the corresponding command
+        } else {
+            console.log("Command not recognized.");
+        }
+    };
+
+    // Error handling
+    recognition.onerror = (event) => {
+        console.error("Speech recognition error:", event.error);
+    };
+
+    // Start speech recognition when a button is clicked : 
+    document.getElementById('voiceCommandButton').addEventListener('click', () => {
+        recognition.start();
+        console.log("Voice recognition started...");
+    });
+
+    // Stop speech recognition on user request
+    document.getElementById('stopVoiceCommandButton').addEventListener('click', () => {
+        recognition.stop();
+        console.log("Voice recognition stopped.");
+    });
+}
